@@ -1,17 +1,26 @@
 <app-nav></app-nav>
-<div fxLayout="row" fxLayoutAlign="center center" style="height:80vh;">
-    <!-- <div fxFlex="50">
+<div fxLayout="row" fxLayoutAlign="center center" style="height: 80vh">
+  <!-- <div fxFlex="50">
         hii
     </div> -->
-    <!-- <div fxFlex="50"> -->
-        <div>
-            <form>
-                <h1>Log-in</h1>
-                <label for="">hiii</label>
-                <input placeholder="Username" type="text" required="">
-                <input placeholder="Password" type="password" required="">
-                <button>Submit</button>
-              </form> 
-        </div>
-    <!-- </div> -->
+  <!-- <div fxFlex="50"> -->
+  <div>
+    <form (ngSubmit)="loginProcess()" [formGroup]="formGroup">
+      <h1>Log-in</h1>
+      <input
+        placeholder="Enter E-Mail"
+        type="email"
+        required
+        formControlName="email"
+      />
+      <input
+        placeholder="Enter Password"
+        type="password"
+        required
+        formControlName="password"
+      />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- </div> -->
 </div>
