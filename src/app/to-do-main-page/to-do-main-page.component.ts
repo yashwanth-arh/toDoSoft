@@ -51,26 +51,7 @@ export class ToDoMainPageComponent implements OnInit {
     this.beforeEditCache = '';
     this.idForTodo = 4;
     this.todoTitle = '';
-    this.todos = [
-      {
-        id: 1,
-        title: 'Finish Angular Screencast',
-        completed: false,
-        editing: false,
-      },
-      {
-        id: 2,
-        title: 'Take over world',
-        completed: false,
-        editing: false,
-      },
-      {
-        id: 3,
-        title: 'One more thing',
-        completed: false,
-        editing: false,
-      },
-    ];
+    this.todos = [];
   }
 
   addTodo(): void {

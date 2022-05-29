@@ -6,7 +6,7 @@
     <input
       type="text"
       class="todo-input"
-      placeholder="What needs to be done"
+      placeholder="What needs to be done ?"
       [(ngModel)]="todoTitle"
       (keyup.enter)="addTodo()"
     />
@@ -63,7 +63,7 @@
       </div>
 
       <div *ngIf="atLeastOneCompleted()">
-        <button (click)="clearCompleted()">Clear Completed</button>
+        <button class="btn" (click)="clearCompleted()">Clear Completed</button>
       </div>
     </div>
   </div>
