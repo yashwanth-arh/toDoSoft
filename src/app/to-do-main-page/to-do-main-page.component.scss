@@ -1,34 +1,27 @@
-// .heading-section {
-//   background: linear-gradient(to right, rgb(2, 228, 171), rgb(74, 215, 240));
-//   padding: 100px;
-//   h1.title {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     font-weight: bold;
-//     color: white;
-//     font-size: 40px;
-//     text-shadow: 0px 1px 2px rgba(black, 0.12);
-//   }
-// }
-// .container {
-//   width: 100%;
-// }
+.heading-section {
+  // background: linear-gradient(to right, rgb(2, 228, 171), rgb(74, 215, 240));
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
 
-// .input {
-//   width: 380px;
-// }
-// .add-todo-box {
-//   padding: 25px;
-//   width: 70em;
-//   background: white;
-//   border-radius: 4px;
-//   margin-top: -68px;
-//   box-shadow: 04px 12px rgba(black, 0.08);
-// }
+  padding: 100px;
+  h1.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    text-shadow: 0px 1px 2px rgba(black, 0.12);
+  }
+}
+
+.todo-container {
+  padding: 2rem 10rem;
+  height: 100vh;
+  background-image: linear-gradient(to right, #decba4, #3e5151);
+}
 
 .todo-input {
-  width: 100%;
+  width: 97%;
   padding: 10px 18px;
   font-size: 18px;
   margin-bottom: 16px;
@@ -48,6 +41,7 @@
 
 .remove-item {
   cursor: pointer;
+
   margin-left: 14px;
   &:hover {
     color: black;
@@ -95,31 +89,20 @@
   margin-bottom: 14px;
 }
 
-button {
-  font-size: 14px;
-  background-color: white;
-  appearance: none;
-
-  &:hover {
-    background: lightgreen;
-  }
-
-  &:focus {
-    outline: none;
-  }
+.btn {
+  border-color: #000000;
+  padding: 0.3em 1.3em;
+  cursor: pointer;
+  font-size: 1em;
+  color: #000000;
+  background-image: linear-gradient(45deg, transparent 50%, #000000 50%);
+  background-position: 25%;
+  background-size: 400%;
+  -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
+  transition: background 500ms ease-in-out, color 500ms ease-in-out;
 }
 
-.active {
-  background: lightgreen;
-}
-
-// CSS Transitions
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.btn:hover {
+  color: #ffffff;
+  background-position: 100%;
 }
