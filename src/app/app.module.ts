@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToDoMainPageComponent } from './to-do-main-page/to-do-main-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { ToDoService } from './service/to-do.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ToDoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
