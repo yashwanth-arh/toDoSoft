@@ -1,108 +1,61 @@
-.heading-section {
-  // background: linear-gradient(to right, rgb(2, 228, 171), rgb(74, 215, 240));
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+$primary: purple;
 
-  padding: 100px;
-  h1.title {
+div.todo {
+  background: #fefefe;
+  color: #2e2e2e;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 5;
+  box-shadow: 0px 0px 0px transparent;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &.selected {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.33), 2px 2px 5px rgba(0, 0, 0, 0.33);
+
+    & > h4.title {
+      background: #1e1e1e;
+    }
+  }
+
+  & > h4.title {
+    font-size: 1.2em;
+    padding: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fefefe;
+    background: $primary;
+    transition: background 0.3s ease-in-out;
+  }
+
+  & > div.content {
+    padding: 16px;
+    p {
+      text-align: justify;
+      font-weight: 300;
+    }
+  }
+
+  & > div.action {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: bold;
-    color: white;
-    font-size: 40px;
-    text-shadow: 0px 1px 2px rgba(black, 0.12);
+    padding: 16px;
+
+    .btn-action {
+      padding: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: "Roboto", sans-serif;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #3b3b3b;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: $primary;
+      }
+      &.btn-delete:hover {
+        color: #d32f2f;
+      }
+    }
   }
-}
-
-.todo-container {
-  padding: 2rem 10rem;
-  height: 100vh;
-  background-image: linear-gradient(to right, #decba4, #3e5151);
-}
-
-.todo-input {
-  width: 97%;
-  padding: 10px 18px;
-  font-size: 18px;
-  margin-bottom: 16px;
-
-  &:focus {
-    outline: 0;
-  }
-}
-
-.todo-item {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  animation-duration: 0.3s;
-}
-
-.remove-item {
-  cursor: pointer;
-
-  margin-left: 14px;
-  &:hover {
-    color: black;
-  }
-}
-
-.todo-item-left {
-  // later
-  display: flex;
-  align-items: center;
-}
-
-.todo-item-label {
-  padding: 10px;
-  border: 1px solid white;
-  margin-left: 12px;
-}
-
-.todo-item-edit {
-  font-size: 24px;
-  color: #2c3e50;
-  margin-left: 12px;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc; //override defaults
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.completed {
-  text-decoration: line-through;
-  color: grey;
-}
-
-.extra-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 16px;
-  border-top: 1px solid lightgrey;
-  padding-top: 14px;
-  margin-bottom: 14px;
-}
-
-.btn {
-  border-color: #000000;
-  padding: 0.3em 1.3em;
-  cursor: pointer;
-  font-size: 1em;
-  color: #000000;
-  background-image: linear-gradient(45deg, transparent 50%, #000000 50%);
-  background-position: 25%;
-  background-size: 400%;
-  -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
-  transition: background 500ms ease-in-out, color 500ms ease-in-out;
-}
-
-.btn:hover {
-  color: #ffffff;
-  background-position: 100%;
 }
