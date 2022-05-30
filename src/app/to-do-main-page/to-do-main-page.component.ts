@@ -14,9 +14,10 @@
 
 // }
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Todo } from '../api/todo';
-import { ArrayList } from '@arjunatlast/jsds';
+// import { ArrayList } from '@arjunatlast/jsds';
 
 import { ToDoService } from '../service/to-do.service';
 
@@ -25,25 +26,36 @@ import { ToDoService } from '../service/to-do.service';
   templateUrl: './to-do-main-page.component.html',
   styleUrls: ['./to-do-main-page.component.scss'],
 })
-export class ToDoMainPageComponent implements OnInit {
-  @Input() todo: Todo;
-  selectedTodos: ArrayList<Todo>;
+export class ToDoMainPageComponent implements OnInit,OnChanges {
+  // todo: any[];
+  @Input() todo: any[] ;
+  // selectedTodos: Todo;
 
-  constructor(private ts: ToDoService) {}
+  constructor(private ts: ToDoService,private route:Router) {}
 
   ngOnInit(): void {
-    this.selectedTodos = this.ts.getSelectedTodos();
+    this.getTodoList();
+    console.log(this.todo);
+    
+    // this.selectedTodos = this.ts.getSelectedTodos();
   }
-
-  delete() {
-    this.ts.removeTodo(this.todo);
+ngOnChanges(changes: SimpleChanges): void {
+  this.getTodoList();
+}
+  getTodoList(){
+    this.ts.getAllTodoList().subscribe((data)=>{
+      this.todo = data;
+    })
   }
-
-  select() {
-    this.ts.selectTodo(this.todo);
+  delete(i) {
+    this.ts.removeTodo(i.id).subscribe((res)=>{
+      alert('success')
+    this.getTodoList();
+    })
   }
+  goToEdit(i){
+    // localStorage.setItem('todoVal', i);
+    this.route.navigate(['edit-todo'],i);
 
-  unselect() {
-    this.ts.unSelectTodo(this.todo);
   }
 }

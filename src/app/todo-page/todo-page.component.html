@@ -1,0 +1,15 @@
+<header>
+    <h3 class="title">my<b>TODO</b></h3>
+</header>
+<div class="container">
+    <form class="add-todo-form" [formGroup]="todoForm" (ngSubmit)="addTodo(todoForm.value)">
+        <input class="todo-text" type="text" placeholder="Title" formControlName="title" />
+        <textarea class="todo-text" cols="30" rows="10" placeholder="Content.." formControlName="content"></textarea>
+        <button class="btn-add" type="submit">Add Todo</button>
+    </form>
+    <ul class="list">
+        <li class="todo-item">
+            <app-to-do-main-page [todo]="todoList"></app-to-do-main-page>
+        </li>
+    </ul>
+</div>

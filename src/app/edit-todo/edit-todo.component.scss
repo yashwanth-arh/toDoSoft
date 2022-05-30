@@ -1,0 +1,36 @@
+$primary: purple;
+
+form.add-todo-form {
+    padding: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: darken($primary, 5%);
+
+    .todo-text {
+      border: none;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-weight: 300;
+      color: #2e2e2e;
+      border-radius: 4px;
+    }
+
+    .btn-add {
+      border: none;
+      padding: 16px;
+      border-radius: 4px;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: "Roboto", sans-serif;
+      background: darken($primary, 10%);
+      color: #fefefe;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      &:hover {
+        background: darken($primary, 20%);
+      }
+    }
+  }
