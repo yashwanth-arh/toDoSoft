@@ -1,0 +1,88 @@
+$primary: linear-gradient(#141e30, #243b55);
+$second: #243b55;
+
+header {
+  height: 100px;
+  padding: 32px;
+  background: $primary;
+  display: flex;
+  align-items: center;
+  & > h3.title {
+    font-weight: 300;
+    font-size: 2em;
+    color: white;
+  }
+
+  & > .batch-action {
+    margin-left: auto;
+
+    .btn-action {
+      padding: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: "Roboto", sans-serif;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #fefefe;
+      border-radius: 4px;
+      transition: background 0.3s ease-in-out;
+      &:hover {
+        background: darken($second, 10%);
+      }
+    }
+  }
+}
+.container {
+  background: #fefefe;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+  ul.list {
+    max-height: 63vh;
+    overflow: auto;
+    width: 0;
+    flex: 1;
+    list-style-type: none;
+    padding: 48px;
+    // background: #dfdfdf;
+    & > li.todo-item {
+      padding: 8px;
+    }
+  }
+
+  form.add-todo-form {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    background: darken($second, 5%);
+
+    .todo-text {
+      border: none;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-weight: 300;
+      color: #2e2e2e;
+      border-radius: 4px;
+    }
+
+    .btn-add {
+      border: none;
+      padding: 16px;
+      border-radius: 4px;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: "Roboto", sans-serif;
+      background: $primary;
+      color: #fefefe;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      &:hover {
+        background: darken($second, 20%);
+      }
+    }
+  }
+}

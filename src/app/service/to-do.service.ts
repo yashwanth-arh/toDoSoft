@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../api/todo';
 import { ArrayList } from '@arjunatlast/jsds';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 declare const Buffer;
 
@@ -10,54 +12,17 @@ declare const Buffer;
 export class ToDoService {
   private selectedTodos: ArrayList<Todo> = new ArrayList<Todo>(100);
   private todoList: ArrayList<Todo> = new ArrayList<Todo>(100);
+  private baseUrl = 'https://6294e2e563b5d108c196657a.mockapi.io/api/todo';
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  getTodos(): ArrayList<Todo> {
-    this.readTodos();
-    return this.todoList;
+  getAllTodoList(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/todoList`);
+  }
+  removeTodo(id): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/todoList/${id}`);
+  }
+  addTodo(todo): Observable <any> {
+    return this.http.post<any>(`${this.baseUrl}/todoList`,todo);
   }
 
-  getSelectedTodos(): ArrayList<Todo> {
-    return this.selectedTodos;
-  }
-
-  addTodo(todo: Todo): void {
-    this.todoList.add(todo) && this.saveTodos();
-  }
-
-  removeTodo(todo: Todo): void {
-    this.todoList.remove(todo) && this.saveTodos();
-  }
-
-  selectTodo(todo: Todo): void {
-    this.selectedTodos.add(todo);
-  }
-
-  unSelectTodo(todo: Todo): void {
-    this.selectedTodos.remove(todo);
-  }
-
-  removeSelectedTodos(): void {
-    this.todoList.removeAll(this.selectedTodos.toArray()) && this.saveTodos();
-    this.selectedTodos.clear();
-  }
-
-  private saveTodos(): void {
-    localStorage.setItem(
-      'todos',
-      this.todoList.toString((todo) => {
-        return JSON.stringify({ title: todo.title, content: todo.content });
-      })
-    );
-  }
-
-  private readTodos(): void {
-    let json = localStorage.getItem('todos');
-    if (json)
-      this.todoList = this.todoList.fromString(json, (item) => {
-        let obj = JSON.parse(item);
-        return new Todo(obj.title, obj.content);
-      });
-  }
 }

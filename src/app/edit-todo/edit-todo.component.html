@@ -1,0 +1,5 @@
+<form class="add-todo-form" [formGroup]="todoForm" (ngSubmit)="editTodo(todoForm.value)">
+    <input class="todo-text" type="text" placeholder="Title" formControlName="title" />
+    <textarea class="todo-text" cols="30" rows="10" placeholder="Content.." formControlName="content"></textarea>
+    <button class="btn-add" type="submit">Update Todo</button>
+</form>

@@ -1,10 +1,10 @@
-<div class="todo" [class.selected]="selectedTodos.contains(todo)">
-  <h4 class="title">{{ todo.title }}</h4>
+<div class="todo" *ngFor="let i of todo">
+  <h4 class="title">{{ i.title }}</h4>
   <div class="content">
-    <p>{{ todo.content }}</p>
+    <p>{{ i.content }}</p>
   </div>
   <div class="action">
-    <button class="btn-action btn-delete" (click)="delete()">Delete</button>
+    <button class="btn-action btn-delete" (click)="delete(i)">Delete</button>
     <!-- <button
       class="btn-action btn-select"
       (click)="select()"
@@ -14,10 +14,9 @@
     </button> -->
     <button
       class="btn-action btn-unselect"
-      (click)="unselect()"
-      *ngIf="selectedTodos.contains(todo)"
+      (click)="goToEdit(i)"
     >
-      Unselect
+      Edit
     </button>
   </div>
 </div>

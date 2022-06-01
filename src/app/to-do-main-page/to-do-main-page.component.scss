@@ -1,12 +1,14 @@
-$primary: purple;
-
+$primary: linear-gradient(#141e30, #243b55);
+$second: #243b55;
 div.todo {
   background: #fefefe;
+  margin-bottom: 20px;
   color: #2e2e2e;
   border-radius: 4px;
   overflow: hidden;
   z-index: 5;
-  box-shadow: 0px 0px 0px transparent;
+  box-shadow: 0px 0px 5px #676767;
+  // box-shadow: 0px 0px 0px transparent;
   transition: box-shadow 0.3s ease-in-out;
 
   &.selected {
