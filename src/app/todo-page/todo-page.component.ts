@@ -17,7 +17,6 @@ export class TodoPageComponent implements OnInit {
   ngOnInit(): void {
 
     this.getTodoList();
-    // this.todoList = this.ts.getTodos();
     this.todoForm = this.fb.group({
       title: ['',Validators.required],
       content: ['',Validators.required]

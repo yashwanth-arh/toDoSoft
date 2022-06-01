@@ -1,4 +1,5 @@
-$primary: purple;
+$primary: linear-gradient(#141e30, #243b55);
+$second: #243b55;
 
 header {
   height: 100px;
@@ -27,7 +28,7 @@ header {
       border-radius: 4px;
       transition: background 0.3s ease-in-out;
       &:hover {
-        background: darken($primary, 10%);
+        background: darken($second, 10%);
       }
     }
   }
@@ -55,7 +56,7 @@ header {
     padding: 48px;
     display: flex;
     flex-direction: column;
-    background: darken($primary, 5%);
+    background: darken($second, 5%);
 
     .todo-text {
       border: none;
@@ -75,12 +76,12 @@ header {
       font-weight: 300;
       text-transform: uppercase;
       font-family: "Roboto", sans-serif;
-      background: darken($primary, 10%);
+      background: $primary;
       color: #fefefe;
       cursor: pointer;
       transition: background 0.3s ease-in-out;
       &:hover {
-        background: darken($primary, 20%);
+        background: darken($second, 20%);
       }
     }
   }
